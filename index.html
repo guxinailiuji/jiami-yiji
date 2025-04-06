@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>链上宝藏 - 加密货币数据分析平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons/dist/umd/lucide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+</head>
+<body class="bg-[#111111] text-white min-h-screen">
+    <header class="border-b border-gray-800 p-4 md:p-6 sticky top-0 z-50 bg-[#111111] backdrop-blur-md bg-opacity-95">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
+                    <path d="M18 3L30 9V27L18 33L6 27V9L18 3Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M18 9L24 12V24L18 27L12 24V12L18 9Z" fill="currentColor"/>
+                </svg>
+                <h1 class="text-xl md:text-2xl font-bold tracking-tight">链上宝藏 by 不霁何虹</h1>
+            </div>
+            <button class="block md:hidden p-2 rounded-lg hover:bg-gray-800">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 md:px-6">
+        <section class="mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">探索未上市代币的<span class="text-blue-500">潜力与风险</span></h2>
+                    <p class="text-gray-400 mb-6 text-lg">全面分析公链生态中的潜力项目，从热度、持币情况、健康度、安全性和增长潜力多维度评估加密货币</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-2xl p-6 border border-gray-800">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-xl border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                                <span class="text-sm stat-label text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">高潜力项目</span>
+                            </div>
+                            <p class="font-bold text-2xl" id="high-potential">1,243</p>
+                        </div>
+                        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-xl border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-red-500 mr-2"></div>
+                                <span class="text-sm stat-label text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">高风险项目</span>
+                            </div>
+                            <p class="font-bold text-2xl" id="high-risk">3,752</p>
+                        </div>
+                        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-xl border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-yellow-500 mr-2"></div>
+                                <span class="text-sm stat-label text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">今日热门</span>
+                            </div>
+                            <p class="font-bold text-2xl" id="trending">326</p>
+                        </div>
+                        <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-xl border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <div class="w-2 h-2 rounded-full bg-blue-500 mr-2"></div>
+                                <span class="text-sm stat-label text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">已收录项目</span>
+                            </div>
+                            <p class="font-bold text-2xl" id="total-projects">18,924</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="metrics" class="mb-16">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-2">多维评估指标</h2>
+                <p class="text-gray-400">我们从五个关键维度全面分析代币项目</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-gray-900/50 backdrop-blur-sm p-5 rounded-xl border border-gray-800 hover:border-blue-500 transition-colors">
+                    <div class="flex items-center mb-3 text-blue-500">
+                        <i data-lucide="flame" class="w-5 h-5 mr-2"></i>
+                        <h3 class="font-semibold">热度</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">衡量代币在社区中的关注度、讨论量及市场情绪，包括社交媒体活跃度、名人效应和媒体报道等</p>
+                </div>
+                <div class="bg-gray-900/50 backdrop-blur-sm p-5 rounded-xl border border-gray-800 hover:border-blue-500 transition-colors">
+                    <div class="flex items-center mb-3 text-purple-500">
+                        <i data-lucide="users" class="w-5 h-5 mr-2"></i>
+                        <h3 class="font-semibold">持币</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">分析代币持有者分布情况，包括持币地址总数、大户持仓比例及持有时长分布等指标</p>
+                </div>
+                <div class="bg-gray-900/50 backdrop-blur-sm p-5 rounded-xl border border-gray-800 hover:border-blue-500 transition-colors">
+                    <div class="flex items-center mb-3 text-green-500">
+                        <i data-lucide="activity" class="w-5 h-5 mr-2"></i>
+                        <h3 class="font-semibold">健康度</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">评估代币的市场表现和链上活跃度，包括价格走势、市值、交易量、流动性和价格波动性等</p>
+                </div>
+                <div class="bg-gray-900/50 backdrop-blur-sm p-5 rounded-xl border border-gray-800 hover:border-blue-500 transition-colors">
+                    <div class="flex items-center mb-3 text-yellow-500">
+                        <i data-lucide="shield" class="w-5 h-5 mr-2"></i>
+                        <h3 class="font-semibold">安全性</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">检查代币智能合约安全性，包括审计报告、代码漏洞风险、项目方权限和历史安全事件等</p>
+                </div>
+                <div class="bg-gray-900/50 backdrop-blur-sm p-5 rounded-xl border border-gray-800 hover:border-blue-500 transition-colors">
+                    <div class="flex items-center mb-3 text-rose-500">
+                        <i data-lucide="trending-up" class="w-5 h-5 mr-2"></i>
+                        <h3 class="font-semibold">潜力</h3>
+                    </div>
+                    <p class="text-sm text-gray-400">预测代币未来发展前景，基于项目路线图、团队背景、代币经济学、实际用例和所属赛道前景等</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="blockchains" class="mb-16">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-2">公链生态分类</h2>
+                <p class="text-gray-400">探索不同公链上的创新项目和潜在机会</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6 pb-4">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum" class="w-8 h-8 mr-3">
+                            <h3 class="text-xl font-bold">以太坊生态</h3>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-4">以太坊作为DeFi领域的主导公链，拥有最丰富的生态系统和应用场景</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-900/30 text-blue-400 text-xs px-2 py-1 rounded-full">名人MEME</span>
+                            <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded-full">动物主题</span>
+                            <span class="bg-green-900/30 text-green-400 text-xs px-2 py-1 rounded-full">AI+MEME</span>
+                        </div>
+                    </div>
+                    <button id="eth-btn" class="w-full py-3 text-center border-t border-gray-800 hover:bg-gray-800 transition-colors text-sm font-medium">查看项目</button>
+                </div>
+                <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6 pb-4">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana" class="w-8 h-8 mr-3">
+                            <h3 class="text-xl font-bold">Solana生态</h3>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-4">高性能公链，以低费用和高吞吐量著称，是MEME币和新兴项目的热门选择</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-900/30 text-blue-400 text-xs px-2 py-1 rounded-full">名人MEME</span>
+                            <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded-full">动物主题</span>
+                            <span class="bg-green-900/30 text-green-400 text-xs px-2 py-1 rounded-full">AI+MEME</span>
+                        </div>
+                    </div>
+                    <button id="sol-btn" class="w-full py-3 text-center border-t border-gray-800 hover:bg-gray-800 transition-colors text-sm font-medium">查看项目</button>
+                </div>
+                <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6 pb-4">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BSC" class="w-8 h-8 mr-3">
+                            <h3 class="text-xl font-bold">BSC生态</h3>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-4">币安智能链结合了高吞吐量和低交易费用，支持大量创新和实验性项目</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-900/30 text-blue-400 text-xs px-2 py-1 rounded-full">名人MEME</span>
+                            <span class="bg-purple-900/30 text-purple-400 text-xs px-2 py-1 rounded-full">动物主题</span>
+                            <span class="bg-green-900/30 text-green-400 text-xs px-2 py-1 rounded-full">AI+MEME</span>
+                        </div>
+                    </div>
+                    <button id="bsc-btn" class="w-full py-3 text-center border-t border-gray-800 hover:bg-gray-800 transition-colors text-sm font-medium">查看项目</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETH Chain Projects -->
+        <section id="eth-projects" class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">以太坊生态项目</h2>
+                    <p class="text-gray-400">以太坊链上未上中心化交易所的创新项目</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="filter-btn active px-3 py-1 rounded-lg text-sm font-medium" data-category="all">全部</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="celebrity">名人MEME</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="animal">动物主题</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="ai">AI+MEME</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- JENNER Token -->
+                <div class="project-card celebrity bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mr-3">
+                                <span class="font-bold">JE</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">JENNER</h3>
+                                <div class="flex items-center text-gray-400 text-xs">
+                                    <span class="bg-blue-900/30 text-blue-400 px-1.5 py-0.5 rounded-full mr-1">名人MEME</span>
+                                    <span>Caitlyn Jenner</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 35%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">1,393</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$102,370</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium">Cyberscope (70%)</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">MEDAL代币计划</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">Caitlyn Jenner发行的名人MEME代币，曾引发争议。计划在Base链推出MEDAL代币，价格经历剧烈波动。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/jennertoken" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://jennertoken.com" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/jennertoken" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACT Token -->
+                <div class="project-card ai bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center mr-3">
+                                <span class="font-bold">ACT</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">ACT: The AI Prophecy</h3>
+                                <div class="flex items-center text-gray-400 text-xs">
+                                    <span class="bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded-full mr-1">AI+MEME</span>
+                                    <span>AI Agent</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">126</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$172,271,938</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium text-red-500">未审计</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">ACT DAO成立</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">ACT是一种基于AI概念的MEME代币，相关项目旨在整合AI团队及web2/web3技术，近期推出新路线图，引入新团队并建立DAO。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/ai_prophecy" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://aiprophecy.io" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/aiprophecyofficial" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ETH Animal Meme -->
+                <div class="project-card animal bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-yellow-300 flex items-center justify-center mr-3">
+                                <span class="font-bold">AW</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Animal World</h3>
+                                <div class="flex items-center text-gray-400 text-xs">
+                                    <span class="bg-purple-900/30 text-purple-400 px-1.5 py-0.5 rounded-full mr-1">动物主题</span>
+                                    <span>多种动物形象</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 55%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">3,248</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$256,890</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium">SolidProof (85%)</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">NFT系列预告</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">以多种动物形象为主题的MEME代币，社区氛围活跃，计划推出NFT系列以及元宇宙虚拟空间项目。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/animalworldeth" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://animalworld.eth.xyz" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/animalworldeth" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solana Chain Projects -->
+        <section id="sol-projects" class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">Solana生态项目</h2>
+                    <p class="text-gray-400">Solana链上未上中心化交易所的创新项目</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="filter-btn active px-3 py-1 rounded-lg text-sm font-medium" data-category="all">全部</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="celebrity">名人MEME</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="animal">动物主题</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="ai">AI+MEME</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- MOTHER Token -->
+                <div class="project-card celebrity bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-red-500 flex items-center justify-center mr-3">
+                                <span class="font-bold">MO</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">MOTHER</h3>
+                                <div class="flex items-center text-gray-400 text-xs">
+                                    <span class="bg-blue-900/30 text-blue-400 px-1.5 py-0.5 rounded-full mr-1">名人MEME</span>
+                                    <span>Iggy Azalea</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 35%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">27,932</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$1,331,000</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium text-red-500">未审计</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">社媒活动</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">由音乐家Iggy Azalea推出的MEME代币，在社交媒体上引起广泛关注，交易活跃但价格波动剧烈。项目高度依赖名人持续参与。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/mothertoken" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://mothertoken.io" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/mothertokenofficial" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GOAT Token -->
+                <div class="project-card ai bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mr-3">
+                                    <span class="font-bold">GT</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">GOAT (Terminal of Truths)</h3>
+                                    <div class="flex items-center text-gray-400 text-xs">
+                                        <span class="bg-green-900/30 text-green-400 px-1.5 py-0.5 rounded-full mr-1">AI+MEME</span>
+                                        <span>AI Agent</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-medium">$0.86</span>
+                                <span class="text-xs text-green-500">+15.40%</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">52,000+</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$200,000,000+</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium text-red-500">未审计</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">$GOATS生态</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">与AI聊天机器人"Truth Terminal"相关的MEME代币，市值曾超10亿美元。计划建立GOATS生态系统，包括空投和透明代币经济学。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/goatsol" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://www.goat.sa" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/goatsol" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PNUT Token -->
+                <div class="project-card animal bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mr-3">
+                                <span class="font-bold">PN</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">PNUT (Peanut the Squirrel)</h3>
+                                <div class="flex items-center text-gray-400 text-xs">
+                                    <span class="bg-purple-900/30 text-purple-400 px-1.5 py-0.5 rounded-full mr-1">动物主题</span>
+                                    <span>松鼠</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">~82,900</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$70,217,500</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium">Coinsult (无风险)</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">IP争议</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">基于真实松鼠Peanut故事的MEME代币，马斯克评论提高了其知名度。已上线Coinbase，但面临与宠物主人的IP争议。价格已从高点大幅下跌。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/peanutthesquirreltoken" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://peanuttoken.com" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/peanutthesquirrel" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BSC Chain Projects -->
+        <section id="bsc-projects" class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">BSC生态项目</h2>
+                    <p class="text-gray-400">BSC链上未上中心化交易所的创新项目</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="filter-btn active px-3 py-1 rounded-lg text-sm font-medium" data-category="all">全部</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="celebrity">名人MEME</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="animal">动物主题</button>
+                    <button class="filter-btn px-3 py-1 rounded-lg text-sm font-medium" data-category="ai">AI+MEME</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- MUBARAK Token -->
+                <div class="project-card celebrity bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center mr-3">
+                                <span class="font-bold">MB</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">MUBARAK</h3>
+                                <div class="flex items-center text-gray-400 text-xs">
+                                    <span class="bg-blue-900/30 text-blue-400 px-1.5 py-0.5 rounded-full mr-1">名人MEME</span>
+                                    <span>CZ效应</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">21,207</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$47,850,000</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium text-red-500">未审计</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">工具转型计划</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">源于阿拉伯语"祝福"的文化MEME币，CZ效应显著提升热度。存在高集中度风险（单一钱包>50%），有向实用型代币转型计划但缺乏细节。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/mubaraktoken" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://mubaraktoken.com" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/mubaraktoken" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BAMBI Token -->
+                <div class="project-card animal bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-300 flex items-center justify-center mr-3">
+                                    <span class="font-bold">BM</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">BAMBI (Bambi-Nance)</h3>
+                                    <div class="flex items-center text-gray-400 text-xs">
+                                        <span class="bg-purple-900/30 text-purple-400 px-1.5 py-0.5 rounded-full mr-1">动物主题</span>
+                                        <span>小鹿</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-medium">$0.00004</span>
+                                <span class="text-xs text-red-500">-99.00%</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">2,428</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$0</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium">中等风险</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">无</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">以币安活动中宠物小鹿为原型的MEME代币，价格从峰值下跌超99%，流动性几乎为零，无实质发展计划，价值渺茫。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/bambinancetoken" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 opacity-30">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/bambinanceofficial" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHEEMS Token -->
+                <div class="project-card animal bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800 overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 flex items-center justify-center mr-3">
+                                    <span class="font-bold">CH</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">CHEEMS</h3>
+                                    <div class="flex items-center text-gray-400 text-xs">
+                                        <span class="bg-purple-900/30 text-purple-400 px-1.5 py-0.5 rounded-full mr-1">动物主题</span>
+                                        <span>柴犬</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <span class="text-sm font-medium">$0.00000161</span>
+                                <span class="text-xs text-red-500">-4.82%</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">热度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-blue-500 h-1.5 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">持币</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-purple-500 h-1.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">健康度</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-green-500 h-1.5 rounded-full" style="width: 55%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">安全性</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-yellow-500 h-1.5 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="text-xs text-gray-400 mb-1">潜力</div>
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-700 rounded-full h-1.5">
+                                        <div class="bg-rose-500 h-1.5 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">持币地址</div>
+                                <div class="font-medium">82,479</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">交易量 (24h)</div>
+                                <div class="font-medium">$4,475,904</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">安全审计</div>
+                                <div class="font-medium">多重审计</div>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-lg p-2">
+                                <div class="text-gray-400 mb-1">最新更新</div>
+                                <div class="font-medium">社区活动</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mb-4 line-clamp-2">基于网络表情包柴犬的MEME代币，在多个链上发行，BSC链持有者最多。已通过CertiK等多家机构审计，社交媒体情绪中性。</p>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <a href="https://twitter.com/CheemsInu" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://cheemsinu.net" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="globe" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://t.me/cheemstokenbsc" target="_blank" class="text-gray-400 hover:text-white">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            <button class="text-xs bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg font-medium transition-colors">详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 替换原来的"获取最新链上情报"部分 -->
+        <section class="bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-2xl p-6 md:p-8 border border-gray-800 mb-16">
+            <div class="flex flex-col items-center justify-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">社交媒体</h2>
+                <div class="flex flex-wrap justify-center gap-8 mb-4">
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors flex flex-col items-center">
+                        <i data-lucide="video" class="w-8 h-8 mb-2"></i>
+                        <span class="text-sm">B站</span>
+                    </a>
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors flex flex-col items-center">
+                        <i data-lucide="youtube" class="w-8 h-8 mb-2"></i>
+                        <span class="text-sm">油管</span>
+                    </a>
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors flex flex-col items-center">
+                        <i data-lucide="twitter" class="w-8 h-8 mb-2"></i>
+                        <span class="text-sm">推特</span>
+                    </a>
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors flex flex-col items-center">
+                        <i data-lucide="message-circle" class="w-8 h-8 mb-2"></i>
+                        <span class="text-sm">微博</span>
+                    </a>
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors flex flex-col items-center">
+                        <i data-lucide="play" class="w-8 h-8 mb-2"></i>
+                        <span class="text-sm">快手</span>
+                    </a>
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors flex flex-col items-center">
+                        <i data-lucide="music" class="w-8 h-8 mb-2"></i>
+                        <span class="text-sm">抖音</span>
+                    </a>
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors flex flex-col items-center">
+                        <i data-lucide="book-open" class="w-8 h-8 mb-2"></i>
+                        <span class="text-sm">小红书</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 mb-10">
+            <h2 class="text-xl font-bold mb-4">风险提示</h2>
+            <div class="text-gray-400 text-sm space-y-2">
+                <p>加密货币尤其是未上市的代币存在极高的投资风险，包括但不限于市场波动风险、流动性风险、智能合约风险、监管风险等。</p>
+                <p>本平台提供的信息仅供参考，不构成投资建议。请进行自己的研究（DYOR）并咨询专业的财务顾问。</p>
+                <p>永远不要投资超过您能承受损失的资金，特别是在高风险的MEME代币和未上市项目中。</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Prevent zooming
+        window.addEventListener("wheel", (e)=> {
+            const isPinching = e.ctrlKey
+            if(isPinching) e.preventDefault()
+        }, { passive: false })
+        
+        // 数字动态浮动效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const highPotentialEl = document.getElementById('high-potential');
+            const highRiskEl = document.getElementById('high-risk');
+            const trendingEl = document.getElementById('trending');
+            const totalProjectsEl = document.getElementById('total-projects');
+            const statLabels = document.querySelectorAll('.stat-label');
+            
+            // 初始值
+            const initialValues = {
+                highPotential: 1243,
+                highRisk: 3752,
+                trending: 326,
+                totalProjects: 18924
+            };
+            
+            // 更新显示
+            function updateNumbers() {
+                // 随机生成浮动范围 (±5%)
+                const highPotentialChange = Math.floor(initialValues.highPotential * (0.95 + Math.random() * 0.1));
+                const highRiskChange = Math.floor(initialValues.highRisk * (0.95 + Math.random() * 0.1));
+                const trendingChange = Math.floor(initialValues.trending * (0.9 + Math.random() * 0.2));
+                const totalProjectsChange = Math.floor(initialValues.totalProjects * (0.99 + Math.random() * 0.02));
+                
+                // 设置数值并添加变化动画
+                animateValue(highPotentialEl, parseInt(highPotentialEl.innerText.replace(/,/g, '')), highPotentialChange, 1500);
+                animateValue(highRiskEl, parseInt(highRiskEl.innerText.replace(/,/g, '')), highRiskChange, 1500);
+                animateValue(trendingEl, parseInt(trendingEl.innerText.replace(/,/g, '')), trendingChange, 1500);
+                animateValue(totalProjectsEl, parseInt(totalProjectsEl.innerText.replace(/,/g, '')), totalProjectsChange, 1500);
+            }
+            
+            // 数字变化动画
+            function animateValue(element, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const currentValue = Math.floor(progress * (end - start) + start);
+                    element.innerText = currentValue.toLocaleString();
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+            
+            // 标签文字高亮动画
+            function updateLabelHighlight() {
+                const labels = Array.from(statLabels);
+                // 随机选择一个标签高亮显示
+                const randomIndex = Math.floor(Math.random() * labels.length);
+                
+                // 移除所有当前高亮
+                labels.forEach(label => {
+                    label.classList.remove('animate-pulse');
+                    label.style.filter = 'brightness(1)';
+                });
+                
+                // 添加高亮到随机标签
+                const selectedLabel = labels[randomIndex];
+                selectedLabel.classList.add('animate-pulse');
+                selectedLabel.style.filter = 'brightness(1.5)';
+                
+                // 随机更换渐变颜色
+                const gradients = [
+                    'bg-gradient-to-r from-green-400 to-blue-500',
+                    'bg-gradient-to-r from-purple-500 to-pink-500',
+                    'bg-gradient-to-r from-yellow-400 to-red-500',
+                    'bg-gradient-to-r from-blue-500 to-indigo-600',
+                    'bg-gradient-to-r from-red-500 to-orange-500',
+                    'bg-gradient-to-r from-cyan-400 to-blue-500'
+                ];
+                
+                labels.forEach(label => {
+                    const oldGradient = label.className.match(/bg-gradient-to-r from-[a-z]+-\d+ to-[a-z]+-\d+/)[0];
+                    const filteredGradients = gradients.filter(g => g !== oldGradient);
+                    const randomGradient = filteredGradients[Math.floor(Math.random() * filteredGradients.length)];
+                    
+                    label.classList.remove(oldGradient);
+                    label.classList.add(randomGradient);
+                });
+            }
+            
+            // 初始设置
+            highPotentialEl.innerText = initialValues.highPotential.toLocaleString();
+            highRiskEl.innerText = initialValues.highRisk.toLocaleString();
+            trendingEl.innerText = initialValues.trending.toLocaleString();
+            totalProjectsEl.innerText = initialValues.totalProjects.toLocaleString();
+            
+            // 每5分钟更新数字
+            setInterval(updateNumbers, 300000); // 300000毫秒 = 5分钟
+            
+            // 添加文字高亮动画，每3秒切换一次
+            setInterval(updateLabelHighlight, 3000);
+            
+            // 初始触发一次更新
+            updateNumbers();
+            updateLabelHighlight();
+        });
+    </script>
+</body>
+</html>
